@@ -1,0 +1,40 @@
+# --- Python Virtual Environment ---
+venv/
+.venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+
+# --- Flask & Web Scraper Instance ---
+instance/
+.webassets-cache
+.scrapy/
+logs.log
+
+# --- Data & Excel Files (Keep output private) ---
+*.csv
+*.xlsx
+*.xls
+data/
+downloads/
+
+# --- Environment Variables & Secrets ---
+.env
+.flaskenv
+*.pem
+secrets.json
+
+# --- IDE & OS Metadata ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Testing & Coverage ---
+.pytest_cache/
+.coverage
+htmlcov/
+
+Okoto Travels/Docs/
+*.mp4
