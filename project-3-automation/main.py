@@ -10,6 +10,7 @@ import smtplib
 load_dotenv()
 EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
+INPUT_FILE = 'contacts.xlsx'
 
 # --- READ CONTACTS FROM EXCEL ---
 def load_contacts(file_path):
@@ -67,3 +68,8 @@ def send_emails(contacts):
 
 
 # --- MAIN ---
+if __name__ == '__main__':
+    contacts = load_contacts(INPUT_FILE)
+    print(f"📋 Loaded {len(contacts)} contacts\n")
+    send_emails(contacts)
+    print("\n🎉 Done!")
