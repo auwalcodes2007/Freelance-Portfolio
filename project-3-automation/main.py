@@ -48,6 +48,22 @@ Mohammed Auwal Hassan
 
 
 # --- SEND EMAILS ---
+def send_emails(contacts):
+    try:
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+            smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+            print("✅ Logged in successfully\n")
+
+            for contact in contacts:
+                msg = build_email(contact)
+                try:
+                    smtp.sendmail(EMAIL_ADDRESS, contact['email'], msg.as_string())
+                    print(f"📧 Sent to {contact['name']} — {contact['email']}")
+                except Exception as e:
+                    print(f"❌ Failed to send to {contact['email']}: {e}")
+
+    except Exception as e:
+        print(f"❌ Login failed: {e}")
 
 
 # --- MAIN ---
