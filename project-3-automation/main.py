@@ -17,7 +17,7 @@ def load_contacts(file_path):
     wb = openpyxl.load_workbook(file_path)
     ws = wb.active
     contacts = []
-    for row in ws.iter_rows(min=2, values_only=True):
+    for row in ws.iter_rows(min_row=2, values_only=True):
         name, email = row
         if name and email:
             contacts.append({"name": name, "email": email})
