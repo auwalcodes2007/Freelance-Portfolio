@@ -1,6 +1,8 @@
 from dotenv import load_dotenv
 import os
 import openpyxl
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 
 # LOAD CREDENTIALS
@@ -21,7 +23,28 @@ def load_contacts(file_path):
 
 
 # --- BUILD PERSONALIZED EMAIL ---
+def build_email(contact):
+    msg = MIMEMultipart()
+    msg['From'] = EMAIL_ADDRESS
+    msg['To'] = contact['email']
+    msg['Subject'] = f"Hey {contact['name'].split()[0]}, a quick message for you"
 
+    body = f"""
+Hi {contact['name'].split()[0]},
+
+Hope you're doing well! I'm reaching out to introduce my Python
+automation services. I help businesses save time by automating
+repetitive tasks like data cleaning, report generation, and
+email outreach — exactly like this email was sent.
+
+If that sounds useful, I'd love to chat.
+
+Best regards,
+Mohammed Auwal Hassan
+    """
+
+    msg.attach(MIMEText(body, "plain"))
+    return msg
 
 # --- SEND EMAILS ---
 
