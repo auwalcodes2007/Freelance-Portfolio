@@ -15,7 +15,7 @@ INPUT_FILE = 'contacts.xlsx'
 # --- READ CONTACTS FROM EXCEL ---
 def load_contacts(file_path):
     wb = openpyxl.load_workbook(file_path)
-    ws = wb.active()
+    ws = wb.active
     contacts = []
     for row in ws.iter_rows(min=2, values_only=True):
         name, email = row
