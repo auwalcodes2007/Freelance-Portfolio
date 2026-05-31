@@ -3,6 +3,7 @@ import os
 import openpyxl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import smtplib
 
 
 # LOAD CREDENTIALS
@@ -42,9 +43,9 @@ If that sounds useful, I'd love to chat.
 Best regards,
 Mohammed Auwal Hassan
     """
-
     msg.attach(MIMEText(body, "plain"))
     return msg
+
 
 # --- SEND EMAILS ---
 
