@@ -30,7 +30,6 @@ def build_email(contact):
     msg['From'] = EMAIL_ADDRESS
     msg['To'] = contact['email']
     msg['Subject'] = f"Hey {contact['name'].split()[0]}, a quick message for you"
-
     body = f"""
 Hi {contact['name'].split()[0]},
 
